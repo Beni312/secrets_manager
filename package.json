@@ -1,7 +1,7 @@
 {
-  "name": "backend-ts",
+  "name": "secret-manager",
   "version": "1.0.10",
-  "description": "desc123",
+  "description": "secret-manager",
   "node_deb": {
     "entrypoints": {
       "daemon": "app.js --daemon"
@@ -12,10 +12,8 @@
     "develop": "nodemon app.ts",
     "start": "npm run build && npm run serve",
     "build": "npm run clean && tsc && npm run copy-files",
-    "build-webserver": "npm i && npm run clean && tsc && npm run copy-files && npm run build-frontend",
     "deb": "npm run build && cd dist && node-deb -- *",
     "copy-files": "cp .env ./dist && cp ./package.json ./dist",
-    "build-frontend": "cd ../client && npm i && ng build --prod --outputPath=../server/dist/resources/WEB-INF",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "clean": "rimraf dist",
     "serve": "tsc-watch --outDir ./dist --onSuccess \"node ./dist/app.js\""
